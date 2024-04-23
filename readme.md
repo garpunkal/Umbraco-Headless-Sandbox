@@ -20,6 +20,17 @@
 
 ## Usage
 
+use node 20.x (I'm using: 20.11.1).
+
+```cmd
+nvm install 20.11.1
+nvm use 20.11.1
+```
+use yarn: 
+```cmd
+npm install yarn -g
+```
+
 #### Umbraco
 
 Umbraco must be running for the routes to build statically on the frontend client. 
