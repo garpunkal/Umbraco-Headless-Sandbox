@@ -11,6 +11,9 @@
 |password|HG8GrrELDKy3TqVOUcjE!|
 
 
+## Notes
+Uses Vercel for hosting, so the output is vercel adapter. This can be changed by changing or removing the astro adapter
+
 ## Outstanding
 - Search minimal API
 - Sitemap optimisation? API for sitemap rather than recursive calls to cd API? 
