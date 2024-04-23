@@ -1,5 +1,7 @@
 # Umbraco Headless Sandbox
 
+![Umbraco Headless Sandbox](/screenshots/image.png)
+
 ## Credentials
 #### Umbraco
 
