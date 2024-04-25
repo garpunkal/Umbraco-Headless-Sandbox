@@ -27,9 +27,9 @@ export class UmbracoApiClient {
 			HEADERS: config?.HEADERS,
 			ENCODE_PATH: config?.ENCODE_PATH,
 			interceptors: {
-				request: new Interceptors(),
-				response: new Interceptors(),
-			},
+                request: new Interceptors(),
+                response: new Interceptors(),
+            },
 		});
 
 		this.content = new ContentService(this.request);
