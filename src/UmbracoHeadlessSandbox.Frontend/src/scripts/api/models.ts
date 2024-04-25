@@ -1,11 +1,11 @@
 export type AccordionElementModel = (IApiElementModelBase & {
-properties?: AccordionPropertiesModel;
+	properties?: AccordionPropertiesModel;
 });
 
 
 
 export type AccordionItemElementModel = (IApiElementModelBase & {
-properties?: AccordionItemPropertiesModel;
+	properties?: AccordionItemPropertiesModel;
 });
 
 
@@ -34,10 +34,10 @@ export type ApiBlockGridAreaModel = {
 
 
 export type ApiBlockGridItemModel = (ApiBlockItemModel & {
-rowSpan?: number;
-columnSpan?: number;
-areaGridColumns?: number;
-areas?: Array<ApiBlockGridAreaModel>;
+	rowSpan?: number;
+	columnSpan?: number;
+	areaGridColumns?: number;
+	areas?: Array<ApiBlockGridAreaModel>;
 });
 
 
@@ -69,7 +69,7 @@ export type ApiLinkModel = {
 
 
 export type BannerElementModel = (IApiElementModelBase & {
-properties?: BannerPropertiesModel;
+	properties?: BannerPropertiesModel;
 });
 
 
@@ -81,13 +81,13 @@ export type BannerPropertiesModel = {
 
 
 export type CarouselElementModel = (IApiElementModelBase & {
-properties?: CarouselPropertiesModel;
+	properties?: CarouselPropertiesModel;
 });
 
 
 
 export type CarouselItemElementModel = (IApiElementModelBase & {
-properties?: CarouselItemPropertiesModel;
+	properties?: CarouselItemPropertiesModel;
 });
 
 
@@ -107,7 +107,7 @@ export type CarouselPropertiesModel = {
 
 
 export type GenericContentModel = (IApiContentModelBase & {
-properties?: GenericPropertiesModel;
+	properties?: GenericPropertiesModel;
 });
 
 
@@ -117,14 +117,14 @@ export type GenericContentResponseModel = (IApiContentResponseModelBase & Generi
 
 
 export type GenericPropertiesModel = (SettingsPropertiesModel & BannerPropertiesModel & {
-title?: string | null;
-content?: ApiBlockListModel;
+	title?: string | null;
+	content?: ApiBlockListModel;
 });
 
 
 
 export type HomepageContentModel = (IApiContentModelBase & {
-properties?: HomepagePropertiesModel;
+	properties?: HomepagePropertiesModel;
 });
 
 
@@ -134,20 +134,20 @@ export type HomepageContentResponseModel = (IApiContentResponseModelBase & Homep
 
 
 export type HomepagePropertiesModel = (BannerPropertiesModel & {
-title?: string | null;
-content?: ApiBlockListModel;
-phoneNumber?: string | null;
-emailAddress?: string | null;
-logo?: Array<IApiMediaWithCropsModel> | null;
-searchPlaceholder?: string | null;
-copyright?: string | null;
-footerLinks?: Array<ApiLinkModel> | null;
+	title?: string | null;
+	content?: ApiBlockListModel;
+	phoneNumber?: string | null;
+	emailAddress?: string | null;
+	logo?: Array<IApiMediaWithCropsModel> | null;
+	searchPlaceholder?: string | null;
+	copyright?: string | null;
+	footerLinks?: Array<ApiLinkModel> | null;
 });
 
 
 
 export type HttpValidationProblemDetails = (ProblemDetails & {
-errors?: Record<string, Array<string>>;
+	errors?: Record<string, Array<string>>;
 });
 
 
@@ -157,13 +157,13 @@ export type IApiContentModel = HomepageContentModel | GenericContentModel | Peop
 
 
 export type IApiContentModelBase = (IApiElementModelBase & {
-readonly name?: string | null;
-readonly createDate?: string;
-readonly updateDate?: string;
-route?: IApiContentRouteModel;
-readonly id?: string;
-readonly contentType?: string;
-readonly properties?: Record<string, unknown>;
+	readonly name?: string | null;
+	readonly createDate?: string;
+	readonly updateDate?: string;
+	route?: IApiContentRouteModel;
+	readonly id?: string;
+	readonly contentType?: string;
+	readonly properties?: Record<string, unknown>;
 });
 
 
@@ -173,14 +173,14 @@ export type IApiContentResponseModel = HomepageContentResponseModel | GenericCon
 
 
 export type IApiContentResponseModelBase = (IApiContentModelBase & {
-readonly cultures?: Record<string, IApiContentRouteModel>;
-readonly name?: string | null;
-readonly createDate?: string;
-readonly updateDate?: string;
-route?: IApiContentRouteModel;
-readonly id?: string;
-readonly contentType?: string;
-readonly properties?: Record<string, unknown>;
+	readonly cultures?: Record<string, IApiContentRouteModel>;
+	readonly name?: string | null;
+	readonly createDate?: string;
+	readonly updateDate?: string;
+	route?: IApiContentRouteModel;
+	readonly id?: string;
+	readonly contentType?: string;
+	readonly properties?: Record<string, unknown>;
 });
 
 
@@ -290,7 +290,7 @@ export type PagedIApiMediaWithCropsResponseModel = {
 
 
 export type PeopleContentModel = (IApiContentModelBase & {
-properties?: PeoplePropertiesModel;
+	properties?: PeoplePropertiesModel;
 });
 
 
@@ -300,13 +300,13 @@ export type PeopleContentResponseModel = (IApiContentResponseModelBase & PeopleC
 
 
 export type PeoplePropertiesModel = (SettingsPropertiesModel & BannerPropertiesModel & {
-content?: ApiBlockListModel;
+	content?: ApiBlockListModel;
 });
 
 
 
 export type PersonContentModel = (IApiContentModelBase & {
-properties?: PersonPropertiesModel;
+	properties?: PersonPropertiesModel;
 });
 
 
@@ -316,15 +316,15 @@ export type PersonContentResponseModel = (IApiContentResponseModelBase & PersonC
 
 
 export type PersonPropertiesModel = (SettingsPropertiesModel & BannerPropertiesModel & {
-title?: string | null;
-image?: Array<IApiMediaWithCropsModel> | null;
-jobTitle?: string | null;
-phoneNumber?: string | null;
-emailAddress?: string | null;
-cV?: Array<IApiMediaWithCropsModel> | null;
-admissionsQualifications?: Array<string> | null;
-keyAreasOfPractice?: Array<string> | null;
-content?: ApiBlockListModel;
+	title?: string | null;
+	image?: Array<IApiMediaWithCropsModel> | null;
+	jobTitle?: string | null;
+	phoneNumber?: string | null;
+	emailAddress?: string | null;
+	cV?: Array<IApiMediaWithCropsModel> | null;
+	admissionsQualifications?: Array<string> | null;
+	keyAreasOfPractice?: Array<string> | null;
+	content?: ApiBlockListModel;
 });
 
 
@@ -340,7 +340,7 @@ export type ProblemDetails = {
 
 
 export type PromotionalImageElementModel = (IApiElementModelBase & {
-properties?: PromotionalImagePropertiesModel;
+	properties?: PromotionalImagePropertiesModel;
 });
 
 
@@ -354,7 +354,7 @@ export type PromotionalImagePropertiesModel = {
 
 
 export type RichTextElementModel = (IApiElementModelBase & {
-properties?: RichTextPropertiesModel;
+	properties?: RichTextPropertiesModel;
 });
 
 
@@ -373,7 +373,7 @@ export type RichTextPropertiesModel = {
 
 
 export type SettingsElementModel = (IApiElementModelBase & {
-properties?: SettingsPropertiesModel;
+	properties?: SettingsPropertiesModel;
 });
 
 
@@ -385,7 +385,7 @@ export type SettingsPropertiesModel = {
 
 
 export type SitemapElementModel = (IApiElementModelBase & {
-properties?: SitemapPropertiesModel;
+	properties?: SitemapPropertiesModel;
 });
 
 
@@ -397,13 +397,13 @@ export type SitemapPropertiesModel = {
 
 
 export type TabbedContentElementModel = (IApiElementModelBase & {
-properties?: TabbedContentPropertiesModel;
+	properties?: TabbedContentPropertiesModel;
 });
 
 
 
 export type TabbedContentItemElementModel = (IApiElementModelBase & {
-properties?: TabbedContentItemPropertiesModel;
+	properties?: TabbedContentItemPropertiesModel;
 });
 
 
@@ -423,7 +423,7 @@ export type TabbedContentPropertiesModel = {
 
 
 export type TextColumnElementModel = (IApiElementModelBase & {
-properties?: TextColumnPropertiesModel;
+	properties?: TextColumnPropertiesModel;
 });
 
 
@@ -436,7 +436,7 @@ export type TextColumnPropertiesModel = {
 
 
 export type TextWithImageElementModel = (IApiElementModelBase & {
-properties?: TextWithImagePropertiesModel;
+	properties?: TextWithImagePropertiesModel;
 });
 
 
@@ -450,7 +450,7 @@ export type TextWithImagePropertiesModel = {
 
 
 export type TwoUpElementModel = (IApiElementModelBase & {
-properties?: TwoUpPropertiesModel;
+	properties?: TwoUpPropertiesModel;
 });
 
 
