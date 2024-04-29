@@ -10,8 +10,8 @@ export default function UmbracoClient() {
 export async function GetAllRoutes() {
     try {
         return await UmbracoClient().content?.getContent20({
-            apiKey: process.env.UMBRACO_API_KEY,
-            preview: JSON.parse(process.env.UMBRACO_PREVIEW?.toLowerCase()),
+            apiKey: import.meta.env.UMBRACO_API_KEY,
+            preview: JSON.parse(import.meta.env.UMBRACO_PREVIEW),
             fetch: "descendants:/",
             take: 10000,
             fields: "route",
@@ -21,25 +21,25 @@ export async function GetAllRoutes() {
 }
 
 export async function GetNavigation() {
-    try {
+    //try {
         return await UmbracoClient().content?.getContent20({
-            apiKey: process.env.UMBRACO_API_KEY,
-            preview: JSON.parse(process.env.UMBRACO_PREVIEW?.toLowerCase()),
+            apiKey: import.meta.env.UMBRACO_API_KEY,
+            preview: JSON.parse(import.meta.env.UMBRACO_PREVIEW),
             fetch: "children:/",
             take: 10000,
             fields: "route,properties[title]",
             sort: ["sortOrder:asc"],
             filter: ["umbracoNaviHide:False"]
         });
-    } catch { return null; }
+  //  } catch { return null; }
 }
 
 export async function GetListingItems(route: string, fields: string) {
     try {
         
         return await UmbracoClient().content?.getContent20({
-            apiKey: process.env.UMBRACO_API_KEY,
-            preview: JSON.parse(process.env.UMBRACO_PREVIEW?.toLowerCase()),
+            apiKey: import.meta.env.UMBRACO_API_KEY,
+            preview: JSON.parse(import.meta.env.UMBRACO_PREVIEW),
             fetch: "children:" + route,
             take: 10000,
             fields: fields,
@@ -53,8 +53,8 @@ export async function GetListingItems(route: string, fields: string) {
 export async function GetContentItemByPath(path: string) {
     try {
         return await UmbracoClient()?.content?.getContentItemByPath20({
-            apiKey: process.env.UMBRACO_API_KEY,
-            preview: JSON.parse(process.env.UMBRACO_PREVIEW?.toLowerCase()),
+            apiKey: import.meta.env.UMBRACO_API_KEY,
+            preview: JSON.parse(import.meta.env.UMBRACO_PREVIEW),
             path: path,
             expand: "properties[content[properties[$all]],$all]",
         });
@@ -65,8 +65,8 @@ export async function GetContentItemByPath(path: string) {
 export async function GetSitemap(key: string) {
     try {
         return await UmbracoClient().content?.getContent20({
-            apiKey: process.env.UMBRACO_API_KEY,
-            preview: JSON.parse(process.env.UMBRACO_PREVIEW?.toLowerCase()),
+            apiKey: import.meta.env.UMBRACO_API_KEY,
+            preview: JSON.parse(import.meta.env.UMBRACO_PREVIEW),
             fetch: "children:" + key,
             take: 10000,
             fields: "route,properties[title]",

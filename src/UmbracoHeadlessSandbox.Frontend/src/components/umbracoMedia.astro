@@ -19,7 +19,7 @@ let media = items || [item];
 	media?.map((item: IApiMediaWithCropsModel) =>
 		item?.mediaType === "Image" || item?.mediaType === "umbracoMediaVectorGraphics" ? (
 			<Picture
-				src={process.env.IMAGE_BASE_URL + item?.url + urlSuffix}
+				src={import.meta.env.IMAGE_BASE_URL + item?.url + urlSuffix}
 				alt={(item?.properties?.altText as string) ?? ""}
 				formats={["webp"]}
 				width={item?.width}
@@ -31,11 +31,11 @@ let media = items || [item];
 			/>		
 		) : item?.mediaType === "umbracoMediaVideo" ? (
 			<video width={item?.width} height={item?.height} controls autoplay muted>
-				<source src={process.env.IMAGE_BASE_URL + item?.url + urlSuffix} type="video/mp4" />
+				<source src={import.meta.env.IMAGE_BASE_URL + item?.url + urlSuffix} type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>		
 		) : (
-			<a href={process.env.IMAGE_BASE_URL + item?.url + urlSuffix} target="_blank" rel="noopener" class={cssClass}>
+			<a href={import.meta.env.IMAGE_BASE_URL + item?.url + urlSuffix} target="_blank" rel="noopener" class={cssClass}>
 				<slot />
 			</a>
 		)
