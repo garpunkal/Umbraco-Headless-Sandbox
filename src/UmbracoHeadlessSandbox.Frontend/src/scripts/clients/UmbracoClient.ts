@@ -21,7 +21,7 @@ export async function GetAllRoutes() {
 }
 
 export async function GetNavigation() {
-    //try {
+    try {
         return await UmbracoClient().content?.getContent20({
             apiKey: import.meta.env.UMBRACO_API_KEY,
             preview: JSON.parse(import.meta.env.UMBRACO_PREVIEW),
@@ -31,7 +31,7 @@ export async function GetNavigation() {
             sort: ["sortOrder:asc"],
             filter: ["umbracoNaviHide:False"]
         });
-  //  } catch { return null; }
+    } catch { return null; }
 }
 
 export async function GetListingItems(route: string, fields: string) {
