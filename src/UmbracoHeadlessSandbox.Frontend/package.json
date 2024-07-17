@@ -12,7 +12,7 @@
 		"vite"
 	],
 	"engines": {
-		"node": "20.x",
+		"node": ">=20.0.0",
 		"npm": "PLEASE USE YARN",
 		"yarn": ">=1.x"
 	},
