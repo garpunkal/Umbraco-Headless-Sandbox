@@ -3,8 +3,8 @@ import type { OpenAPIConfig } from './core/OpenAPI';
 import { Interceptors } from './core/OpenAPI';
 import { FetchHttpRequest } from './core/FetchHttpRequest';
 
-import { ContentService } from './services';
-import { MediaService } from './services';
+import { ContentService } from './services.gen';
+import { MediaService } from './services.gen';
 
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
@@ -27,9 +27,9 @@ export class UmbracoApiClient {
 			HEADERS: config?.HEADERS,
 			ENCODE_PATH: config?.ENCODE_PATH,
 			interceptors: {
-                request: new Interceptors(),
-                response: new Interceptors(),
-            },
+				request: config?.interceptors?.request ?? new Interceptors(),
+				response: config?.interceptors?.response ?? new Interceptors(),
+      },
 		});
 
 		this.content = new ContentService(this.request);
