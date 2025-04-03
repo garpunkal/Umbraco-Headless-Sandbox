@@ -7,7 +7,7 @@ import { type IApiContentResponseModel } from "@scripts/api";
 import { GetContentItemByPath, GetNavigation } from "@scripts/clients/UmbracoClient";
 
 interface Props {
-	page: IApiContentResponseModel | null | undefined;	
+	page: IApiContentResponseModel | null | undefined;
 }
 
 const { page } = Astro.props;
@@ -21,7 +21,7 @@ const navigation = await GetNavigation();
 	<head>
 		<meta charset="UTF-8" />
 
-		{ page ? (<title>{page.properties?.title ?? page.name}</title>) : null }
+		{page ? <title>{page.properties?.title ?? page.name}</title> : null}
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<meta name="format-detection" content="telephone=no" />
@@ -59,12 +59,11 @@ const navigation = await GetNavigation();
 		<GoogleFontsOptimizer
 			url="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
 		/>
-
 	</head>
 	<body>
 		<a href="#main" class="skip-to-main-content-link">Skip to main content</a>
 
-		<Header homepage={homepage} pages={navigation}/>
+		<Header homepage={homepage} pages={navigation} />
 
 		<main id="main">
 			<slot />
@@ -73,8 +72,9 @@ const navigation = await GetNavigation();
 		<Footer homepage={homepage} />
 
 		<script>
-			import dynamicImports from "@scripts/dynamicImports";
-			dynamicImports();
+			import DynamicModuleImporter from "@scripts/DynamicModuleImporter";
+			const dynamicModuleImporter = new DynamicModuleImporter();
+			dynamicModuleImporter.init();
 		</script>
 	</body>
 </html>

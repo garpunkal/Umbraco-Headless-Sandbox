@@ -33,7 +33,8 @@ module.exports = {
 			'sans': ['Open Sans', 'sans-serif'],
 			body: ['Open Sans', 'sans-serif'],
 			heading: ['Open Sans', 'sans-serif'],
-			footer: ['Open Sans', 'sans-serif']
+			footer: ['Open Sans', 'sans-serif'],
+			navigation: ['Roboto Condensed', 'sans-serif']
 		},
 		fontSize: {
 			xs: ['var(--font-size-xs)'],

@@ -44,12 +44,20 @@ export default defineConfig({
     server: {
       https: true
     },
-    plugins: [mkcert()]
+    plugins: [mkcert()],
+    resolve: {
+      alias: {
+        '@layouts': '/src/layouts',
+        '@components': '/src/components',
+        '@scripts': '/src/scripts',
+        '@styles': '/src/styles',
+      }
+    }
   },
   server: {
     origin: "https://localhost:4321",
     hmr: {
-      protocol: 'ws',
+      protocol: 'wss',
     },
     open: true,
     headers: {
