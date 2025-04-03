@@ -2,11 +2,10 @@
 import Generic from "@layouts/Generic.astro";
 import Person from "@layouts/Person.astro";
 import People from "@layouts/People.astro";
-
-import { GetAllRoutes, GetContentItemByPath } from "@scripts/clients/UmbracoClient";
+import UmbracoService from "@scripts/services/UmbracoService";
 
 export async function getStaticPaths() {
-	const pages = await GetAllRoutes();
+	const pages = await UmbracoService.getAllRoutes();
 	if (pages?.items === undefined) return [{ params: { id: "" } }];
 	return pages?.items?.map((page) => ({
 		params: { path: page?.route?.path },
@@ -16,7 +15,7 @@ export async function getStaticPaths() {
 
 export const prerender = import.meta.env.DISABLE_SSR as Boolean;
 
-const page = await GetContentItemByPath(Astro.url.pathname);
+const page = await UmbracoService.getContentItemByPath(Astro.url.pathname);
 ---
 
 {page?.contentType === "people" && <People page={page} />}

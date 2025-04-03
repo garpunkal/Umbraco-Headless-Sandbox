@@ -4,7 +4,7 @@ import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import Header from "@components/header.astro";
 import Footer from "@components/footer.astro";
 import { type IApiContentResponseModel } from "@scripts/api";
-import { GetContentItemByPath, GetNavigation } from "@scripts/clients/UmbracoClient";
+import UmbracoService from "@scripts/services/UmbracoService";
 
 interface Props {
 	page: IApiContentResponseModel | null | undefined;
@@ -12,8 +12,8 @@ interface Props {
 
 const { page } = Astro.props;
 
-const homepage = await GetContentItemByPath("/");
-const navigation = await GetNavigation();
+const homepage = await UmbracoService.getContentItemByPath("/");
+const navigation = await UmbracoService.getNavigation();
 ---
 
 <!doctype html>
@@ -72,9 +72,9 @@ const navigation = await GetNavigation();
 		<Footer homepage={homepage} />
 
 		<script>
-			import DynamicModuleImporter from "@scripts/DynamicModuleImporter";
-			const dynamicModuleImporter = new DynamicModuleImporter();
-			dynamicModuleImporter.init();
+			import DynamicModules from "@scripts/DynamicModules";
+			const moduleImporter = new DynamicModules();
+			moduleImporter.init();
 		</script>
 	</body>
 </html>

@@ -1,17 +1,27 @@
+/**
+ * Navigation - A module for handling responsive navigation functionality
+ */
+export default class Navigation {
+  private el: HTMLElement;
+  private hamburger: HTMLButtonElement | null = null;
+  private hamburgerMenu: HTMLButtonElement | null = null;
+  private hamburgerMenuShadow: HTMLButtonElement | null = null;
+  private hamburgerMenuClose: HTMLButtonElement | null = null;
 
-export interface INavigation {
-  el: HTMLElement;
-  hamburger: HTMLButtonElement | null;
-  hamburgerMenu: HTMLButtonElement | null;
-  hamburgerMenuShadow: HTMLButtonElement | null;
-  hamburgerMenuClose: HTMLButtonElement | null;
-  init: () => void;
-}
+  /**
+   * Creates a new Navigation instance
+   * 
+   * @param el - The container element for the navigation
+   * @param _index - The instance index (unused but required by DynamicModuleImporter)
+   */
+  constructor(el: HTMLElement, _index: number = 0) {
+    this.el = el;
+  }
 
-export default function Navigation(this: INavigation, el: HTMLElement) {
-  this.el = el;
-
-  this.init = () => {
+  /**
+   * Initialize the navigation component
+   */
+  public init(): void {
     this.hamburger = this.el.querySelector('.hamburger');
     if (this.hamburger == null) return;
 
@@ -24,36 +34,51 @@ export default function Navigation(this: INavigation, el: HTMLElement) {
     this.hamburgerMenuClose = this.el.querySelector('.hamburger-menu-close');
     if (this.hamburgerMenuClose == null) return;
  
-    if (this.hamburger) handleHamburgerClick();
-    if (this.hamburgerMenuClose) handleHamburgerMenuCloseClick();
-    if (this.hamburgerMenuShadow) handleHamburgerMenuShadowClick();
-  };
+    if (this.hamburger) this.handleHamburgerClick();
+    if (this.hamburgerMenuClose) this.handleHamburgerMenuCloseClick();
+    if (this.hamburgerMenuShadow) this.handleHamburgerMenuShadowClick();
+  }
 
-  const handleHamburgerClick = () => {
+  /**
+   * Set up hamburger button click event
+   */
+  private handleHamburgerClick(): void {
     this.hamburger?.addEventListener('click', () => {
-      openMenu();
+      this.openMenu();
     });
-  };
+  }
 
-  const handleHamburgerMenuCloseClick = () => {
+  /**
+   * Set up close button click event
+   */
+  private handleHamburgerMenuCloseClick(): void {
     this.hamburgerMenuClose?.addEventListener('click', () => {
-      closeMenu();
+      this.closeMenu();
     });
-  };
+  }
 
-  const handleHamburgerMenuShadowClick = () => {
+  /**
+   * Set up shadow overlay click event
+   */
+  private handleHamburgerMenuShadowClick(): void {
     this.hamburgerMenuShadow?.addEventListener('click', () => {
-      closeMenu();
+      this.closeMenu();
     });
-  };
+  }
 
-  const openMenu = () => {
+  /**
+   * Opens the mobile menu
+   */
+  private openMenu(): void {
     this.hamburgerMenu?.classList.remove('hidden');
     this.hamburgerMenu?.classList.add('open');
     this.hamburgerMenuShadow?.classList.remove('hidden');
   }
 
-  const closeMenu = () => {
+  /**
+   * Closes the mobile menu
+   */
+  private closeMenu(): void {
     this.hamburgerMenu?.classList.add('hidden');
     this.hamburgerMenu?.classList.remove('open');
     this.hamburgerMenuShadow?.classList.add('hidden');

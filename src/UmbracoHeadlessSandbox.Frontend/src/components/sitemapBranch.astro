@@ -1,6 +1,6 @@
 ---
 import { type IApiContentResponseModel } from "@scripts/api";
-import { GetSitemap } from "@scripts/clients/UmbracoClient";
+import UmbracoService from "@scripts/services/UmbracoService";
 import SitemapBranchChild from "@components/sitemapBranch.astro";
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 
 const { path } = Astro.props;
 
-const pages = await GetSitemap(path);
+const pages = await UmbracoService.getSitemap(path);
 ---
 
 <ul class="list-disc ml-10">

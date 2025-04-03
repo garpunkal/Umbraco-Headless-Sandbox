@@ -3,7 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import BlockList from "@components/blocklist.astro";
 import PeopleListing from "@components/peopleListing.astro";
 import { type PeopleContentModel } from "@scripts/api";
-import { GetListingItems } from "@scripts/clients/UmbracoClient";
+import UmbracoService from "@scripts/services/UmbracoService";
 import Banner from "@components/banner.astro";
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 
 const { page } = Astro.props;
 
-const pages = await GetListingItems(page.id, "route,properties[title,image,phoneNumber,emailAddress,jobTitle]");
+const pages = await UmbracoService.getListingItems(page.id, "route,properties[title,image,phoneNumber,emailAddress,jobTitle]");
 ---
 
 <Layout page={page}>

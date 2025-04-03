@@ -1,15 +1,26 @@
 import Swiper from 'swiper';
 
-export interface IBanner {
-  el: HTMLElement;
-  carousel: any;
-  init: () => void;
-}
+/**
+ * Banner - A module for banner/hero sliders
+ */
+export default class Banner {
+  private el: HTMLElement;
+  private carousel: any;
 
-export default function Banner(this: IBanner, el: HTMLElement) {
-  this.el = el;
+  /**
+   * Creates a new Banner instance
+   * 
+   * @param el - The container element for the banner slider
+   * @param _index - The instance index (unused but required by DynamicModuleImporter)
+   */
+  constructor(el: HTMLElement, _index: number = 0) {
+    this.el = el;
+  }
 
-  this.init = () => {
+  /**
+   * Initialize the banner slider
+   */
+  public init(): void {
     this.carousel = new Swiper(this.el, {
       loop: true,
       speed: 800,
@@ -18,5 +29,5 @@ export default function Banner(this: IBanner, el: HTMLElement) {
       grabCursor: true,
       mousewheel: false,
     });
-  };
+  }
 }

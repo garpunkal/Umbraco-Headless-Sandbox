@@ -1,12 +1,12 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import BlockList from "@components/blocklist.astro";
-import { GetContentItemByPath } from "@scripts/clients/UmbracoClient";
+import UmbracoService from "@scripts/services/UmbracoService";
 import Banner from "@components/banner.astro";
 
 export const prerender = false;
 
-const page = await GetContentItemByPath(Astro.url.pathname);
+const page = await UmbracoService.getContentItemByPath(Astro.url.pathname);
 ---
 
 <Layout page={page}>
